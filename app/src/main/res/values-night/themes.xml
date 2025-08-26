@@ -1,0 +1,93 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Bitbloom" parent="Theme.Material3.DayNight.NoActionBar">
+
+        <item name="android:statusBarColor">@color/blue</item>
+        <item name="colorPrimary">@color/light_blue</item>
+        <item name="android:navigationBarColor">#33000000</item>
+        <item name="android:datePickerDialogTheme">@style/BitbloomDatePickerTheme</item>
+    </style>
+
+    <style name="StatusChip" parent="Widget.MaterialComponents.Chip.Choice">
+        <!-- your green pill -->
+        <item name="chipBackgroundColor">#8032CD32</item>
+        <!-- force white text -->
+        <item name="android:textColor">@color/white</item>
+        <!-- other pill tweaks -->
+        <item name="chipCornerRadius">16dp</item>
+        <item name="chipStrokeWidth">0dp</item>
+    </style>
+
+    <!-- DatePicker dialog theme -->
+    <style name="BitbloomDatePickerTheme" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="colorAccent">@color/blue
+        </item>               <!-- header & selection accent -->
+        <item name="android:headerBackground">@color/light_blue</item> <!-- header BG -->
+        <item name="android:colorControlHighlight">@color/blue
+        </item> <!-- selected day circle -->
+        <item name="android:colorControlActivated">@color/blue
+        </item> <!-- selected day circle -->
+        <item name="android:textColorPrimaryInverse">@color/white</item>    <!-- header text -->
+        <item name="android:textColor">@color/blue
+        </item>              <!-- OK / CANCEL buttons -->
+        <item name="android:textColorPrimary">?attr/colorOnBackground</item> <!-- day numbers -->
+    </style>
+
+    <style name="Theme.Bitbloom" parent="Base.Theme.Bitbloom" />
+
+    <style name="Widget.Bitbloom.TextInput" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">16dp</item>
+        <item name="boxCornerRadiusTopEnd">16dp</item>
+        <item name="boxCornerRadiusBottomStart">16dp</item>
+        <item name="boxCornerRadiusBottomEnd">16dp</item>
+
+        <item name="hintTextColor">@color/white</item>
+    </style>
+
+    <style name="Widget.Bitbloom.TextInput.Auth" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">16dp</item>
+        <item name="boxCornerRadiusTopEnd">16dp</item>
+        <item name="boxCornerRadiusBottomStart">16dp</item>
+        <item name="boxCornerRadiusBottomEnd">16dp</item>
+        <item name="boxStrokeColor">@color/text_input_stroke</item>
+        <item name="hintTextColor">@color/white</item>
+        <item name="android:textColorHint">@color/white</item>
+    </style>
+
+    <style name="FabShape.Circle" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item> <!-- Ensures perfect circle -->
+    </style>
+
+    <style name="NoActiveIndicator" parent="@style/Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@android:color/transparent</item>
+        <item name="android:height">0dp</item>
+        <item name="android:width">0dp</item>
+    </style>
+
+    <style name="RoundedImageSmall" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item>
+    </style>
+
+    <style name="ThemeOverlay.Custom.Dialog.Background" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <!-- use your layer-list as the dialog window background -->
+        <item name="android:windowBackground">@drawable/glassy_bg_gradient</item>
+    </style>
+
+    <style name="FullScreenDialog.Glass" parent="Theme.MaterialComponents.DayNight.Dialog">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@drawable/glassy_drawer_bg</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="NavItemActiveIndicator" parent="">
+        <item name="android:background">@drawable/bottom_nav_selected_bg</item>
+        <item name="android:insetLeft">8dp</item>
+        <item name="android:insetRight">8dp</item>
+        <item name="android:insetTop">4dp</item>
+        <item name="android:insetBottom">4dp</item>
+    </style>
+
+</resources>

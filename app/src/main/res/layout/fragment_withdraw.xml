@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_gradient"
+    android:fillViewport="true">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Top Bar -->
+            <RelativeLayout
+                android:id="@+id/topBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <ImageView
+                    android:id="@+id/menuIcon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_menu" />
+
+                <TextView
+                    android:id="@+id/profileTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="Withdraw"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/giftIcon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/gift" />
+            </RelativeLayout>
+
+            <!-- Withdraw Form -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/walletInputLayout"
+                    style="@style/Widget.Bitbloom.TextInput.Auth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="16dp"
+                    android:hint="Wallet Address">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/walletAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:textColor="@android:color/white" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/amountInputLayout"
+                    style="@style/Widget.Bitbloom.TextInput.Auth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/walletInputLayout"
+                    android:layout_marginBottom="16dp"
+                    android:hint="Enter Amount (min 30)"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/amount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:textColor="@android:color/white" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/withdrawBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/amountInputLayout"
+                    android:layout_centerInParent="true"
+                    android:layout_marginHorizontal="6dp"
+                    android:layout_marginTop="16dp"
+                    android:minHeight="56dp"
+                    android:text="Withdraw"
+                    android:textColor="@android:color/white"
+                    app:backgroundTint="@color/blue"
+                    app:cornerRadius="16dp" />
+
+                <!-- Tabs -->
+                <FrameLayout
+                    android:id="@+id/tabLayoutContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:layout_below="@id/withdrawBtn"
+                    android:layout_marginTop="30dp"
+                    android:padding="4dp">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/tabStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        app:tabGravity="fill"
+                        app:tabIndicator="@drawable/tab_indicator_bg"
+                        app:tabIndicatorFullWidth="true"
+                        app:tabIndicatorGravity="center"
+                        app:tabIndicatorHeight="28dp"
+                        app:tabMode="fixed"
+                        app:tabRippleColor="@android:color/transparent"
+                        app:tabSelectedTextColor="@android:color/white"
+                        app:tabTextColor="@color/white" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="32dp"
+                        android:background="@color/white" />
+                </FrameLayout>
+
+                <!-- ViewPager wrapped in Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp"
+                    android:layout_below="@id/tabLayoutContainer"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/glassy_bg_gradient"
+                    android:padding="12dp"
+                    app:cardBackgroundColor="@android:color/transparent"
+                    app:strokeColor="@android:color/transparent">
+
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/viewPager"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/glassy_bg_gradient"
+                        android:clipToPadding="false"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="20dp" />
+                </com.google.android.material.card.MaterialCardView>
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Animation container -->
+    <LinearLayout
+        android:id="@+id/animationContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@android:color/transparent"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieAnimationView"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            app:lottie_autoPlay="false"
+            app:lottie_loop="false"
+            app:lottie_rawRes="@raw/sent_animation" />
+    </LinearLayout>
+</FrameLayout>

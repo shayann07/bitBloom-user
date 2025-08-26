@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.codingEmpire.bitbloom.ui.fragments.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login" />
+
+    <fragment
+        android:id="@+id/signupFragment"
+        android:name="com.codingEmpire.bitbloom.ui.fragments.SignupFragment"
+        android:label="Signup"
+        tools:layout="@layout/fragment_signup" />
+
+    <fragment
+        android:id="@+id/forgetPasswordFragment"
+        android:name="com.codingEmpire.bitbloom.ui.fragments.ForgetPasswordFragment"
+        android:label="Forget Password"
+        tools:layout="@layout/fragment_forget_password" />
+
+    <fragment
+        android:id="@+id/newPasswordFragment"
+        android:name="com.codingEmpire.bitbloom.ui.fragments.NewPasswordFragment"
+        android:label="New Password"
+        tools:layout="@layout/fragment_new_password" />
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.codingEmpire.bitbloom.ui.fragments.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_achievementsFragment"
+            app:destination="@id/achievementsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_dailyRewardFragment"
+            app:destination="@id/dailyRewardFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_investmentPlansFragment"
+            app:destination="@id/investmentPlansFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_leaderboardFragment"
+            app:destination="@id/leaderboardFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_teamLevelsFragment"
+            app:destination="@id/teamLevelsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_luckySpinFragment"
+            app:destination="@id/luckySpinFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_transactionsFragment"
+            app:destination="@id/transactionsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_depositFragment"
+            app:destination="@id/depositFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_withdrawFragment"
+            app:destination="@id/withdrawFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_annoucementsFragment"
+            app:destination="@id/annoucementsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/walletFragment"
+        android:name="com.codingEmpire.bitbloom.ui.fragments.WalletFragment"
+        android:label="Wallet"
+        tools:layout="@layout/fragment_wallet">
+        <action
+            android:id="@+id/action_walletFragment_to_depositFragment"
+            app:destination="@id/depositFragment" />
+        <action
+            android:id="@+id/action_walletFragment_to_withdrawFragment"
+            app:destination="@id/withdrawFragment" />
+        <action
+            android:id="@+id/action_walletFragment_to_transactionsFragment"
+            app:destination="@id/transactionsFragment" />
+        <action
+            android:id="@+id/action_walletFragment_to_plansFragment"
+            app:destination="@id/plansFragment" />
+        <action
+            android:id="@+id/action_walletFragment_to_investmentPlansFragment"
+            app:destination="@id/investmentPlansFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/plansFragment"
+        android:name="com.codingEmpire.bitbloom.ui.fragments.PlansFragment"
+        android:label="Plans"
+        tools:layout="@layout/fragment_plans" />
+
+    <fragment
+        android:id="@+id/teamLevelsFragment"
+        android:name="com.codingEmpire.bitbloom.ui.fragments.TeamLevelsFragment"
+        android:label="Team"
+        tools:layout="@layout/fragment_team_levels">
+
+        <action
+            android:id="@+id/action_teamLevels_to_levelUsers"
+            app:destination="@id/levelUsersFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/levelUsersFragment"
+        android:name="com.codingEmpire.bitbloom.ui.fragments.LevelUsersFragment"
+        android:label="Level Users">
+        <argument
+            android:name="level"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.codingEmpire.bitbloom.ui.fragments.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_profileFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/profileFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/luckySpinFragment"
+        android:name="com.codingEmpire.bitbloom.ui.fragments.LuckySpinFragment"
+        android:label="Lucky Spin"
+        tools:layout="@layout/fragment_lucky_spin">
+
+
+        <action
+            android:id="@+id/action_luckySpinFragment_to_investmentPlansFragment"
+            app:destination="@id/investmentPlansFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/luckySpinHistoryFragment"
+        android:name="com.codingEmpire.bitbloom.ui.fragments.LuckySpinHistoryFragment"
+        android:label="Lucky Spin History"
+        tools:layout="@layout/fragment_lucky_spin_history" />
+
+    <fragment
+        android:id="@+id/achievementsFragment"
+        android:name="com.codingEmpire.bitbloom.ui.fragments.AchievementsFragment"
+        android:label="AchievementsFragment"
+        tools:layout="@layout/fragment_achievements" />
+    <fragment
+        android:id="@+id/dailyRewardFragment"
+        android:name="com.codingEmpire.bitbloom.ui.fragments.DailyRewardFragment"
+        android:label="DailyRewardFragment"
+        tools:layout="@layout/fragment_daily_reward" />
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.codingEmpire.bitbloom.ui.fragments.DashboardFragment"
+        android:label="DashboardFragment"
+        tools:layout="@layout/fragment_dashboard">
+        <action
+            android:id="@+id/action_dashboardFragment_to_transactionsFragment"
+            app:destination="@id/transactionsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/depositFragment"
+        android:name="com.codingEmpire.bitbloom.ui.fragments.DepositFragment"
+        android:label="DepositFragment"
+        tools:layout="@layout/fragment_deposit" />
+    <fragment
+        android:id="@+id/depositHistoryFragment"
+        android:name="com.codingEmpire.bitbloom.ui.fragments.DepositHistoryFragment"
+        android:label="DepositHistoryFragment"
+        tools:layout="@layout/fragment_deposit_history" />
+    <fragment
+        android:id="@+id/investmentPlansFragment"
+        android:name="com.codingEmpire.bitbloom.ui.fragments.InvestmentPlansFragment"
+        android:label="InvestmentPlansFragment"
+        tools:layout="@layout/fragment_investment_plans">
+
+        <argument
+            android:name="prefillAmount"
+            android:defaultValue="-1.0"
+            app:argType="float" />
+
+        <action
+            android:id="@+id/action_investmentPlansFragment_to_planRecieptFragment"
+            app:destination="@id/planRecieptFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/leaderboardFragment"
+        android:name="com.codingEmpire.bitbloom.ui.fragments.LeaderboardFragment"
+        android:label="LeaderboardFragment"
+        tools:layout="@layout/fragment_leaderboard" />
+    <fragment
+        android:id="@+id/profitHistoryFragment"
+        android:name="com.codingEmpire.bitbloom.ui.fragments.ProfitHistoryFragment"
+        android:label="ProfitHistoryFragment"
+        tools:layout="@layout/fragment_profit_history" />
+    <fragment
+        android:id="@+id/salaryFragment"
+        android:name="com.codingEmpire.bitbloom.ui.fragments.SalaryFragment"
+        android:label="SalaryFragment"
+        tools:layout="@layout/fragment_salary" />
+    <fragment
+        android:id="@+id/transactionsFragment"
+        android:name="com.codingEmpire.bitbloom.ui.fragments.TransactionsFragment"
+        android:label="TransactionsFragment"
+        tools:layout="@layout/fragment_transactions">
+        <action
+            android:id="@+id/action_transactionsFragment_to_profitHistoryFragment"
+            app:destination="@id/profitHistoryFragment" />
+        <action
+            android:id="@+id/action_transactionsFragment_to_withdrawHistoryFragment"
+            app:destination="@id/withdrawHistoryFragment" />
+        <action
+            android:id="@+id/action_transactionsFragment_to_depositHistoryFragment"
+            app:destination="@id/depositHistoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/withdrawFragment"
+        android:name="com.codingEmpire.bitbloom.ui.fragments.WithdrawFragment"
+        android:label="WithdrawFragment"
+        tools:layout="@layout/fragment_withdraw" />
+
+    <fragment
+        android:id="@+id/withdrawHistoryFragment"
+        android:name="com.codingEmpire.bitbloom.ui.fragments.WithdrawHistoryFragment"
+        android:label="WithdrawHistoryFragment"
+        tools:layout="@layout/fragment_withdraw_history">
+
+        <action
+            android:id="@+id/action_withdrawHistoryFragment_to_depositHistoryFragment"
+            app:destination="@id/depositHistoryFragment" />
+
+        <action
+            android:id="@+id/action_withdrawHistoryFragment_to_profitHistoryFragment"
+            app:destination="@id/profitHistoryFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/planRecieptFragment"
+        android:name="com.codingEmpire.bitbloom.ui.fragments.PlanRecieptFragment"
+        android:label="fragment_plan_reciept"
+        tools:layout="@layout/fragment_plan_reciept">
+        <action
+            android:id="@+id/action_planRecieptFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/annoucementsFragment"
+        android:name="com.codingEmpire.bitbloom.ui.fragments.AnnoucementsFragment"
+        android:label="fragment_annoucements"
+        tools:layout="@layout/fragment_annoucements" />
+
+    <fragment
+        android:id="@+id/faqsFragment"
+        android:name="com.codingEmpire.bitbloom.ui.fragments.FaqsFragment"
+        android:label="fragment_faqs"
+        tools:layout="@layout/fragment_faqs" />
+
+    <fragment
+        android:id="@+id/privacyPolicyFragment"
+        android:name="com.codingEmpire.bitbloom.ui.fragments.PrivacyPolicyFragment"
+        android:label="fragment_privacy_policy"
+        tools:layout="@layout/fragment_privacy_policy" />
+    <fragment
+        android:id="@+id/purchasedPlansHistory"
+        android:name="com.codingEmpire.bitbloom.ui.fragments.PurchasedPlansHistory"
+        android:label="PurchasedPlansHistory" />
+
+    <!-- Pending list -->
+    <fragment
+        android:id="@+id/pendingTicketsFragment"
+        android:name="com.codingEmpire.bitbloom.ui.fragments.support.PendingTicketsFragment"
+        android:label="Pending"
+        tools:layout="@layout/fragment_pending">
+
+        <action
+            android:id="@+id/action_to_ticketDetails"
+            app:destination="@id/ticketDetailsFragment" />
+    </fragment>
+
+    <!-- Closed list -->
+    <fragment
+        android:id="@+id/closedTicketsFragment"
+        android:name="com.codingEmpire.bitbloom.ui.fragments.support.ClosedTicketsFragment"
+        android:label="Closed"
+        tools:layout="@layout/fragment_closed">
+
+        <action
+            android:id="@+id/action_to_ticketDetails"
+            app:destination="@id/ticketDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/answeredTicketsFragment"
+        android:name="com.codingEmpire.bitbloom.ui.fragments.support.AnsweredTicketsFragment"
+        android:label="Answered"
+        tools:layout="@layout/fragment_answered">
+
+        <action
+            android:id="@+id/action_to_ticketDetails"
+            app:destination="@id/ticketDetailsFragment" />
+    </fragment>
+
+    <!-- All list -->
+    <fragment
+        android:id="@+id/allTicketsFragment"
+        android:name="com.codingEmpire.bitbloom.ui.fragments.support.AllTicketsFragment"
+        android:label="All"
+        tools:layout="@layout/fragment_all">
+
+        <action
+            android:id="@+id/action_to_ticketDetails"
+            app:destination="@id/ticketDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/supportFragment"
+        android:name="com.codingEmpire.bitbloom.ui.fragments.support.SupportFragment"
+        android:label="Support"
+        tools:layout="@layout/fragment_support" />
+
+    <fragment
+        android:id="@+id/supportTicketsFragment"
+        android:name="com.codingEmpire.bitbloom.ui.fragments.support.SupportTicketsFragment"
+        android:label="Support Tickets"
+        tools:layout="@layout/fragment_support_tickets" />
+
+    <fragment
+        android:id="@+id/ticketDetailsFragment"
+        android:name="com.codingEmpire.bitbloom.ui.fragments.support.TicketDetailsFragment"
+        android:label="Ticket Details"
+        tools:layout="@layout/fragment_ticket_details">
+
+        <argument
+            android:name="ticketId"
+            app:argType="string" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/salaryHistoryFragment"
+        android:name="com.codingEmpire.bitbloom.ui.fragments.SalaryHistoryFragment"
+        android:label="SalaryHistoryFragment"
+        tools:layout="@layout/fragment_salary_history" />
+
+    <fragment
+        android:id="@+id/achievementsHistoryFragment"
+        android:name="com.codingEmpire.bitbloom.ui.fragments.AchievementsHistoryFragment"
+        android:label="AchievementsHistoryFragment"
+        tools:layout="@layout/fragment_achievements_history" />
+
+</navigation>

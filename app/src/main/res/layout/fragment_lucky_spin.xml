@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_gradient">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:nestedScrollingEnabled="false">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Top Bar with Profile Title and Icons -->
+                <RelativeLayout
+                    android:id="@+id/topbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:id="@+id/menuIcon"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentStart="true"
+                        android:src="@drawable/ic_menu" />
+
+                    <TextView
+                        android:id="@+id/profileTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="Lucky Spin"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/notificationIcon"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/gift" />
+                </RelativeLayout>
+
+                <FrameLayout
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="24dp"
+                    android:foreground="@drawable/circle_accent_border"
+                    android:padding="4dp">
+
+                    <com.bluehomestudio.luckywheel.LuckyWheel
+                        android:id="@+id/luckyWheel"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:arrow_image="@drawable/outline_arrow_drop_down_24"
+                        app:background_color="@android:color/transparent"
+                        app:image_padding="16dp" />
+
+                </FrameLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSpin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="26dp"
+                    android:paddingHorizontal="56dp"
+                    android:paddingVertical="12dp"
+                    android:text="Spin Now"
+                    android:textColor="@android:color/white"
+                    app:backgroundTint="@color/blue"
+                    app:cornerRadius="20dp" />
+
+                <!-- Top row: icon, label, referral code, copy button -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="46dp"
+                    android:background="@drawable/glassy_bg_gradient2"
+                    android:padding="16dp">
+
+                    <!-- Icon box -->
+                    <ImageView
+                        android:id="@+id/iconRef"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/bg_referral_icon"
+                        android:padding="12dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_user_add" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="bottom"
+                        android:layout_marginStart="12dp"
+                        android:layout_toEndOf="@+id/iconRef"
+                        android:gravity="center_vertical"
+                        android:text="Lucky USDT"
+                        android:textColor="#EDEDED"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+
+                    <TextView
+                        android:id="@+id/tvResult"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="16dp"
+                        android:text="$0"
+                        android:textColor="#DDDDDD"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/investInPlanBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="56dp"
+                    android:paddingHorizontal="56dp"
+                    android:paddingVertical="16dp"
+                    android:text="Invest in plan now!"
+                    android:textColor="@android:color/black"
+                    android:visibility="gone"
+                    app:backgroundTint="#F5FFFFFF"
+                    app:cornerRadius="20dp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp" />
+
+            </LinearLayout>
+
+            <!-- Animation container -->
+            <LinearLayout
+                android:id="@+id/animationContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:gravity="top|center_horizontal"
+                android:paddingTop="120dp"
+                android:visibility="gone">
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/lottieAnimationView"
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+                    app:lottie_autoPlay="false"
+                    app:lottie_loop="false"
+                    app:lottie_rawRes="@raw/confetti" />
+            </LinearLayout>
+        </FrameLayout>
+    </ScrollView>
+</FrameLayout>

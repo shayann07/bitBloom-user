@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 1️⃣ Opaque base gradient -->
+    <item>
+        <shape android:shape="rectangle">
+            <corners
+                android:topRightRadius="20dp"
+                android:bottomRightRadius="20dp"
+                android:topLeftRadius="0dp"
+                android:bottomLeftRadius="0dp"/>
+            <gradient
+                android:angle="270"
+                android:startColor="#FF293784"
+                android:centerColor="#FF312054"
+                android:endColor="#FF231843"
+                android:type="linear"
+                android:useLevel="false"/>
+        </shape>
+    </item>
+
+    <!-- 2️⃣ Your white/glow overlays (can stay translucent) -->
+    <item android:right="0dp" android:top="0dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="260dp"
+                android:centerX="0.8"
+                android:centerY="0.4"
+                android:startColor="#66FFFFFF"
+                android:endColor="#00FFFFFF"
+                android:useLevel="false"/>
+        </shape>
+    </item>
+
+    <!-- 3️⃣ Left blue glow -->
+    <item android:left="0dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="140dp"
+                android:centerX="0.0"
+                android:centerY="0.5"
+                android:startColor="#55252B66"
+                android:endColor="#00252B66"
+                android:useLevel="false"/>
+        </shape>
+    </item>
+
+    <!-- 4️⃣ Bottom tint -->
+    <item android:bottom="0dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="90"
+                android:startColor="#00FFFFFF"
+                android:endColor="#181B1744"
+                android:type="linear"
+                android:useLevel="false"/>
+        </shape>
+    </item>
+</layer-list>

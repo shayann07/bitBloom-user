@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_gradient">
+
+    <!-- Content container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Top bar -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/menuIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentStart="true"
+                android:src="@drawable/ic_menu" />
+
+            <TextView
+                android:id="@+id/profileTitleW"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Withdraw History"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
+
+        <!-- Filter icon aligned right (if separate from tabs) -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp">
+
+            <ImageButton
+                android:id="@+id/iv_filter"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="end"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/filter_list_bg"
+                android:contentDescription="Filter"
+                android:src="@drawable/ic_filter_list" />
+
+            <!-- 2) Transparent TabLayout on top, drawing the green indicator -->
+            <FrameLayout
+                android:id="@+id/tabLayoutContainer"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_below="@id/withdrawBtn"
+                android:layout_marginTop="10dp"
+                android:padding="4dp">
+
+                <!-- 1) Black “track” behind all tabs -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <!-- 2) Transparent TabLayout on top, drawing the green indicator -->
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabStatusDeposit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    app:tabGravity="fill"
+                    app:tabIndicator="@drawable/tab_indicator_bg"
+                    app:tabIndicatorFullWidth="true"
+                    app:tabIndicatorGravity="center"
+                    app:tabIndicatorHeight="28dp"
+                    app:tabMode="fixed"
+                    app:tabRippleColor="@android:color/transparent"
+                    app:tabSelectedTextColor="@android:color/white"
+                    app:tabTextColor="@color/white">
+
+                    <!-- Each TabItem now has layout_width & layout_height -->
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="All" />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Approved" />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Rejected" />
+
+                </com.google.android.material.tabs.TabLayout>
+
+                <View
+                    android:id="@+id/tabUnderLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="32dp"
+                    android:background="@color/white" />
+
+            </FrameLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/tabLayoutContainer"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/glassy_bg_gradient"
+                android:padding="12dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:strokeColor="@android:color/transparent">
+
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/viewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/glassy_bg_gradient"
+                    android:clipToPadding="false"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="20dp" />
+
+
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

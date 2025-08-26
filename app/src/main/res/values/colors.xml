@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="grey">#B4FFFFFF</color>
+    <color name="blue">#3758FC</color>
+    <color name="seaGreen">#11CABE</color>
+    <color name="darkSeaGreen">#1BA27A</color>
+    <color name="yellow">#FFBB38</color>
+    <color name="red">#FF4B4A</color>
+    <color name="gray">#B9B9B9</color>
+    <color name="dark_blue">#1B0041B2</color>
+    <color name="light_blue">#F1378AFC</color>
+    <color name="nav_bar_color">#131417</color>
+
+    <color name="snackbar_error">#F44336</color>    <!-- red-500 -->
+    <color name="snackbar_success">#F1378AFC</color>
+
+    <color name="transparent_black_light">#BB000000</color> <!-- subtle dim -->
+
+    <color name="ticket_pending">#FFC107</color>  <!-- amber / warning -->
+    <color name="ticket_closed">#4CAF50</color>   <!-- material green 500 -->
+
+</resources>
