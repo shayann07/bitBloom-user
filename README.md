@@ -44,3 +44,4 @@ bitBloom User App is the mobile client for the bitBloom digital asset platform. 
 ## License
 
 This project is licensed under the MIT License.
+<!-- commit 1 -->
