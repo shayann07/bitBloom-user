@@ -1,102 +1,101 @@
-# bitBloom User App
+# BitBloom User
 
-bitBloom User App is the mobile client for the bitBloom digital asset platform. This Android application lets end users securely manage their accounts and interact with the bitBloom ecosystem from their smartphones.
+Android client for BitBloom account, wallet, investment-plan, referral-team, reward, and support workflows backed primarily by Firebase.
+
+## Overview
+
+BitBloom User is a Kotlin Android application built with XML layouts, fragments, Jetpack Navigation, ViewModels, repositories, LiveData, and coroutines. Users can create and verify accounts, view balances and transaction activity, submit financial actions, purchase configured plans, inspect referral levels, collect in-app rewards, manage a profile, and contact support.
+
+Most application data is read from and written directly to Firebase services. The app also calls a Firebase callable function for referral-team data, reads cryptocurrency prices from CoinGecko, and uses Firebase Remote Config for application updates.
 
 ## Features
 
-- Secure user authentication and registration.
-- View and manage your digital wallet.
-- Monitor real‑time cryptocurrency prices and market charts.
-- Buy, sell and trade digital assets on the go.
-- Track your transaction history and wallet balances.
-- Deposit and withdraw funds safely.
-- Push notifications for price alerts, transactions and updates.
-- Clean and intuitive user interface built with modern Android components.
+- Firebase email/password registration, email verification, login, password reset, and session persistence
+- User profile viewing, editing, and profile-image storage
+- Wallet balances, token valuation, recent activity, and cryptocurrency price retrieval
+- Deposit recording and withdrawal-request workflows with history views
+- Configurable investment-plan catalog, plan purchase, auto-invest selection, and purchased-plan history
+- Direct and indirect referral metrics, six-level team views, and leaderboard data
+- ROI, plan, referral, team, salary, achievement, lucky-spin, deposit, and withdrawal transaction views
+- Daily rewards, starter rewards, lucky-spin rewards, achievement rewards, and salary-level collection
+- Announcements, image notices, FAQs, privacy content, and support-ticket submission/tracking
+- Firebase Cloud Messaging notifications
+- Firebase App Check with Play Integrity
+- Remote Config-driven APK update flow with package-name and SHA-256 validation
+
+## Tech Stack
+
+- Kotlin and Android SDK
+- XML layouts and View Binding
+- Jetpack Navigation with Safe Args
+- ViewModel, LiveData, and Kotlin coroutines
+- Material Components
+- Firebase Authentication
+- Cloud Firestore
+- Firebase Storage
+- Firebase Cloud Messaging
+- Firebase Cloud Functions
+- Firebase Remote Config
+- Firebase App Check / Play Integrity
+- OkHttp, Volley, Gson, and Moshi
+- Glide, Picasso, Lottie, PhotoView, uCrop, and ZXing Core
+
+## Architecture
+
+The app follows a lightweight MVVM-style structure:
+
+1. Fragments render each workflow and observe ViewModel state.
+2. ViewModels coordinate coroutine work and expose LiveData to the UI.
+3. Repository classes query Firebase, invoke callable functions, fetch external data, and perform account or transaction updates.
+4. Models map Firestore documents and UI data.
+5. Utility classes handle preferences, sounds, transaction dialogs, onboarding tours, and APK updates.
+
+Navigation starts at the login screen and routes authenticated users through home, wallet, plans, team, rewards, profile, announcements, transaction, and support screens.
+
+## Project Structure
+
+```text
+app/src/main/
+|-- java/com/codingEmpire/bitbloom/
+|   |-- adapters/       # RecyclerView and pager adapters
+|   |-- fcm/            # Notification receiving and FCM helper code
+|   |-- models/         # Firestore and UI models
+|   |-- repos/          # Firebase and network data operations
+|   |-- ui/             # Main activity and fragments
+|   |-- utils/          # Preferences, updates, dialogs, and shared helpers
+|   `-- viewModels/     # Screen state and repository coordination
+|-- res/                # Layouts, navigation graph, drawables, audio, and animations
+`-- AndroidManifest.xml
+```
 
 ## Getting Started
 
-1. Clone the repository:
+### Prerequisites
 
-   ```bash
-   git clone https://github.com/shayann07/bitBloom-user.git
-   ```
+- Android Studio with a JDK compatible with Android Gradle Plugin 8.10.1
+- Android SDK 35
+- An emulator or device running Android 7.0 (API 24) or newer
+- Access to a Firebase project configured for the services used by the app
 
-2. Open the project in **Android Studio**.
+### Build
 
-3. Let Gradle sync and download required dependencies.
+```bash
+git clone https://github.com/shayann07/bitBloom-user.git
+cd bitBloom-user
+./gradlew assembleDebug
+```
 
-4. Configure your backend API endpoints and any required keys or secrets in the project's configuration files.
+On Windows PowerShell, use `./gradlew.bat assembleDebug`.
 
-5. Connect an Android device or start an emulator, then run the app:
+Running the complete application also requires the expected Firestore collections and indexes, enabled Firebase Authentication and Storage, the `getTeamLevels` callable Cloud Function, Remote Config values used by the updater, App Check configuration, and access to the external services referenced by the source.
 
-   ```bash
-   ./gradlew installDebug
-   ```
+## Current Status and Limitations
 
-## Technologies Used
-
-- **Kotlin** – primary programming language.
-- **Android Jetpack** – Architecture Components, LiveData, ViewModel, Navigation.
-- **Retrofit / OkHttp** – networking.
-- **Coroutines / Flow** – asynchronous programming.
-- **Firebase** or other backend services – authentication, realtime database and push notifications.
-
-## License
-
-This project is licensed under the MIT License.
-<!-- commit 1 -->
-<!-- commit 2 -->
-<!-- commit 3 -->
-<!-- commit 4 -->
-<!-- commit 5 -->
-<!-- commit 6 -->
-<!-- commit 7 -->
-<!-- commit 8 -->
-<!-- commit 9 -->
-<!-- commit 10 -->
-<!-- commit 11 -->
-<!-- commit 12 -->
-<!-- commit 13 -->
-<!-- commit 14 -->
-<!-- commit 15 -->
-<!-- commit 16 -->
-<!-- commit 17 -->
-<!-- commit 18 -->
-<!-- commit 19 -->
-<!-- commit 20 -->
-<!-- commit 21 -->
-<!-- commit 22 -->
-<!-- commit 23 -->
-<!-- commit 24 -->
-<!-- commit 25 -->
-<!-- commit 26 -->
-<!-- commit 27 -->
-<!-- commit 28 -->
-<!-- commit 29 -->
-<!-- commit 30 -->
-<!-- commit 31 -->
-<!-- commit 32 -->
-<!-- commit 33 -->
-<!-- commit 34 -->
-<!-- commit 35 -->
-<!-- commit 36 -->
-<!-- commit 37 -->
-<!-- commit 38 -->
-<!-- commit 39 -->
-<!-- commit 40 -->
-<!-- commit 41 -->
-<!-- commit 42 -->
-<!-- commit 43 -->
-<!-- commit 44 -->
-<!-- commit 45 -->
-
-<!-- gitpulse:contribution index="46" timestamp="2026-04-26" -->
-<!-- gitpulse:contribution index="47" timestamp="2026-04-26" -->
-<!-- gitpulse:contribution index="48" timestamp="2026-04-28" -->
-<!-- gitpulse:contribution index="49" timestamp="2026-04-28" -->
-<!-- gitpulse:contribution index="50" timestamp="2026-04-28" -->
-<!-- gitpulse:contribution index="51" timestamp="2026-04-28" -->
-<!-- gitpulse:contribution index="52" timestamp="2026-04-28" -->
-<!-- gitpulse:contribution index="53" timestamp="2026-04-28" -->
-<!-- gitpulse:contribution index="54" timestamp="2026-04-28" -->
-<!-- gitpulse:contribution index="55" timestamp="2026-04-28" -->
+- The repository contains an implemented Android client, but backend provisioning and deployment instructions are not included.
+- Financial balances, plan purchases, deposits, withdrawals, and several reward claims are performed directly from the client and depend on strict server-side Firebase rules.
+- A Firebase service-account credential is embedded in the Android source for sending FCM messages. This credential must not be shipped in a client application.
+- Passwords are duplicated in Firestore and local preferences, and login code logs password data. Firebase Authentication should be the only password authority.
+- The app downloads APK updates from a Remote Config URL and requests permission to install packages outside an app store.
+- The external payment backend, Firestore schema, composite indexes, and operational ownership are not documented.
+- Only generated example unit and instrumentation tests are present.
+- No license file is included.
