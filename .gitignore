@@ -1,15 +1,55 @@
+# Built application files
+*.apk
+*.aar
+*.ap_
+*.aab
+
+# Java class & dex files
+*.class
+*.dex
+
+# Generated & build outputs
+bin/
+gen/
+out/
+app/build/
+build/
+captures/
+.cxx/
+.externalNativeBuild/
+
+# Gradle files
+.gradle/
+buildOutputCleanup/
+
+# Android Studio / IntelliJ IDEA
+.idea/
 *.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+*.iws
+*.ipr
+.idea/caches/
+.idea/libraries/
+.idea/modules.xml
+.idea/workspace.xml
+.idea/navEditor.xml
+.idea/assetWizardSettings.xml
+
+# Local configuration files
 local.properties
+signing.properties
+
+# Keystores & Credentials
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pem
+*.key
+google-services.json
+app/google-services.json
+*.env
+
+# Logs & OS metadata
+*.log
+.DS_Store
+Thumbs.db

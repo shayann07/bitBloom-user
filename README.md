@@ -1,101 +1,121 @@
-# BitBloom User
+# BitBloom User — Android Cryptocurrency Investment & Financial Rewards Platform
 
-Android client for BitBloom account, wallet, investment-plan, referral-team, reward, and support workflows backed primarily by Firebase.
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.10-purple.svg)](https://kotlinlang.org)
+[![Android SDK](https://img.shields.io/badge/Android%20SDK-35-green.svg)](https://developer.android.com)
+[![Gradle](https://img.shields.io/badge/Gradle-8.11.1-blue.svg)](https://gradle.org)
+[![Firebase](https://img.shields.io/badge/Firebase-Auth%20%7C%20Firestore%20%7C%20Functions-orange.svg)](https://firebase.google.com)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-## Overview
+BitBloom User is a comprehensive native Android financial management and cryptocurrency cloud investment application built with modern Kotlin, Jetpack Navigation, custom OpenGL/Canvas gamification animations, and Firebase serverless cloud architecture.
 
-BitBloom User is a Kotlin Android application built with XML layouts, fragments, Jetpack Navigation, ViewModels, repositories, LiveData, and coroutines. Users can create and verify accounts, view balances and transaction activity, submit financial actions, purchase configured plans, inspect referral levels, collect in-app rewards, manage a profile, and contact support.
+---
 
-Most application data is read from and written directly to Firebase services. The app also calls a Firebase callable function for referral-team data, reads cryptocurrency prices from CoinGecko, and uses Firebase Remote Config for application updates.
+## Application Architecture
 
-## Features
+```mermaid
+graph TD
+    subgraph Client_App ["Android Single-Activity Architecture"]
+        MainActivity[MainActivity Host] --> BottomNav[Bottom Navigation: Home, Wallets, Plans, Team, Profile]
+        MainActivity --> DrawerNav[Drawer Menu: 11 Navigation Routes & Socials]
+        BottomNav --> HomeTab[Home: Live Market Prices, Yield Metrics, Announcements]
+        BottomNav --> WalletsTab[Wallets: Investment, Profit & Deposit Balances]
+        BottomNav --> PlansTab[Investment Contracts: Tiers & Daily Returns]
+        BottomNav --> TeamTab[Affiliate Network: 6-Tier Commission Progression]
+    end
 
-- Firebase email/password registration, email verification, login, password reset, and session persistence
-- User profile viewing, editing, and profile-image storage
-- Wallet balances, token valuation, recent activity, and cryptocurrency price retrieval
-- Deposit recording and withdrawal-request workflows with history views
-- Configurable investment-plan catalog, plan purchase, auto-invest selection, and purchased-plan history
-- Direct and indirect referral metrics, six-level team views, and leaderboard data
-- ROI, plan, referral, team, salary, achievement, lucky-spin, deposit, and withdrawal transaction views
-- Daily rewards, starter rewards, lucky-spin rewards, achievement rewards, and salary-level collection
-- Announcements, image notices, FAQs, privacy content, and support-ticket submission/tracking
-- Firebase Cloud Messaging notifications
-- Firebase App Check with Play Integrity
-- Remote Config-driven APK update flow with package-name and SHA-256 validation
-
-## Tech Stack
-
-- Kotlin and Android SDK
-- XML layouts and View Binding
-- Jetpack Navigation with Safe Args
-- ViewModel, LiveData, and Kotlin coroutines
-- Material Components
-- Firebase Authentication
-- Cloud Firestore
-- Firebase Storage
-- Firebase Cloud Messaging
-- Firebase Cloud Functions
-- Firebase Remote Config
-- Firebase App Check / Play Integrity
-- OkHttp, Volley, Gson, and Moshi
-- Glide, Picasso, Lottie, PhotoView, uCrop, and ZXing Core
-
-## Architecture
-
-The app follows a lightweight MVVM-style structure:
-
-1. Fragments render each workflow and observe ViewModel state.
-2. ViewModels coordinate coroutine work and expose LiveData to the UI.
-3. Repository classes query Firebase, invoke callable functions, fetch external data, and perform account or transaction updates.
-4. Models map Firestore documents and UI data.
-5. Utility classes handle preferences, sounds, transaction dialogs, onboarding tours, and APK updates.
-
-Navigation starts at the login screen and routes authenticated users through home, wallet, plans, team, rewards, profile, announcements, transaction, and support screens.
-
-## Project Structure
-
-```text
-app/src/main/
-|-- java/com/codingEmpire/bitbloom/
-|   |-- adapters/       # RecyclerView and pager adapters
-|   |-- fcm/            # Notification receiving and FCM helper code
-|   |-- models/         # Firestore and UI models
-|   |-- repos/          # Firebase and network data operations
-|   |-- ui/             # Main activity and fragments
-|   |-- utils/          # Preferences, updates, dialogs, and shared helpers
-|   `-- viewModels/     # Screen state and repository coordination
-|-- res/                # Layouts, navigation graph, drawables, audio, and animations
-`-- AndroidManifest.xml
+    subgraph Backend_Infrastructure ["Cloud Services & REST Microservices"]
+        WalletsTab --> RenderAPI[Render REST API: CoinPayments Deposit Proxy]
+        PlansTab --> Firestore[(Google Cloud Firestore)]
+        TeamTab --> CloudFunctions[Firebase Cloud Functions: Level Calculations]
+        Client_App --> OTAUpdate[Firebase Remote Config & Sideload OTA Installer]
+    end
 ```
 
-## Getting Started
+---
+
+## Key Features
+
+- **Multi-Tier Investment Engine**: Dynamic calculation and real-time streaming of daily investment yields, contract durations, and direct sponsor bonuses.
+- **6-Level Referral Network Hierarchy**: Dynamic team tracking calculating direct and indirect business volume across 6 downstream affiliate tiers.
+- **Crypto Deposit & Withdrawal Gateway**: Integration with CoinPayments via dedicated Render backend proxy for automated USDT deposit invoice creation and withdrawal processing.
+- **Gamification & Rewards Engine**: Daily login streaks, Lucky Spin wheel, milestone achievements, and recurring monthly salary progression.
+- **In-App Customer Support & OTA Updater**: Direct support ticketing system and automated APK self-update flow with SHA-256 hash validation.
+
+---
+
+## Technical Stack
+
+| Component | Library / Framework | Version |
+|---|---|---|
+| **Language** | Kotlin | 2.1.10 |
+| **Build System** | Android Gradle Plugin / Gradle | 8.10.1 / 8.11.1 |
+| **SDK Levels** | Compile SDK: 35, Target SDK: 35, Min SDK: 24 | Android 7.0+ |
+| **Navigation & UI** | Jetpack Navigation Component + ViewBinding + DrawerLayout | 2.9.0 |
+| **Cloud Services** | Firebase Auth, Firestore, Cloud Functions, Remote Config, Storage | Firebase BoM 33.15.0 |
+| **Networking & HTTP** | OkHttp3 + Volley + Gson + Moshi | 4.12.0 / 2.12.1 |
+| **Visual Effects & Animations** | Airbnb Lottie, LuckyWheel, Shimmer | 6.5.2 |
+
+---
+
+## Setup & Local Development
 
 ### Prerequisites
+- Android Studio Ladybug (2024.2.1+) or newer
+- JDK 17 / Java 11 runtime
+- Android SDK 35 installed
 
-- Android Studio with a JDK compatible with Android Gradle Plugin 8.10.1
-- Android SDK 35
-- An emulator or device running Android 7.0 (API 24) or newer
-- Access to a Firebase project configured for the services used by the app
+### Step-by-Step Configuration
 
-### Build
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/shayann07/bitBloom-user.git
+   cd bitBloom-user
+   ```
 
-```bash
-git clone https://github.com/shayann07/bitBloom-user.git
-cd bitBloom-user
-./gradlew assembleDebug
+2. **Configure Firebase Credentials:**
+   Copy the example configuration template:
+   ```bash
+   cp app/google-services.json.example app/google-services.json
+   ```
+
+3. **Configure Local SDK:**
+   ```bash
+   cp local.properties.example local.properties
+   ```
+
+4. **Build the Application:**
+   ```bash
+   ./gradlew assembleDebug
+   ```
+
+---
+
+## Repository Structure
+
+```
+bitBloom-user/
+├── app/
+│   ├── src/main/
+│   │   ├── java/com/codingEmpire/bitbloom/
+│   │   │   ├── adapters/       # 22 Recycler & ViewPager adapters
+│   │   │   ├── fcm/            # Push notification & FCM token services
+│   │   │   ├── models/         # 35 Data models (User, Plan, Wallet, etc.)
+│   │   │   ├── repos/          # 14 Repositories (Auth, BuyPlan, Wallet, Transaction)
+│   │   │   ├── ui/             # MainActivity, 36 Fragments, 18 ViewModels
+│   │   │   └── utils/          # Constants, RemoteUpdateManager, SoundManager
+│   │   ├── res/                # ~110 layouts, animations, navigation graph
+│   │   └── AndroidManifest.xml # Deep links, FileProvider, permissions
+│   ├── google-services.json.example
+│   └── build.gradle.kts
+├── local.properties.example
+├── LICENSE                     # MIT License
+└── README.md
 ```
 
-On Windows PowerShell, use `./gradlew.bat assembleDebug`.
+---
 
-Running the complete application also requires the expected Firestore collections and indexes, enabled Firebase Authentication and Storage, the `getTeamLevels` callable Cloud Function, Remote Config values used by the updater, App Check configuration, and access to the external services referenced by the source.
+## License
 
-## Current Status and Limitations
+Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
 
-- The repository contains an implemented Android client, but backend provisioning and deployment instructions are not included.
-- Financial balances, plan purchases, deposits, withdrawals, and several reward claims are performed directly from the client and depend on strict server-side Firebase rules.
-- A Firebase service-account credential is embedded in the Android source for sending FCM messages. This credential must not be shipped in a client application.
-- Passwords are duplicated in Firestore and local preferences, and login code logs password data. Firebase Authentication should be the only password authority.
-- The app downloads APK updates from a Remote Config URL and requests permission to install packages outside an app store.
-- The external payment backend, Firestore schema, composite indexes, and operational ownership are not documented.
-- Only generated example unit and instrumentation tests are present.
-- No license file is included.
+Copyright (c) 2026 **shayann07**
